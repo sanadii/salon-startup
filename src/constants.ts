@@ -1,0 +1,120 @@
+import { AppState } from './types';
+
+export const INITIAL_DATA: AppState = {
+  openingDate: '2026-06-19',
+  hammamStatus: 'Foundation',
+  brandSettings: {
+    salonName: 'Elegancia',
+    palette: {
+      primary: '#6A3748',
+      secondary: '#C9A38D',
+      accent: '#D8A7A7',
+      muted: '#EAD9CF',
+      paper: '#F6F1EC',
+    },
+    logoUrl: '',
+  },
+  modules: [
+    {
+      id: 'brand',
+      title: 'Brand Identity',
+      icon: 'Palette',
+      tasks: [
+        { id: 'b1', title: 'Palette Selection', description: 'Choosing primary, secondary, and brand accents. Selection of textures (brand accents, marble, matte black).', status: 'todo', dueDate: '2026-03-20' },
+        { id: 'b2', title: 'Logo Design', description: 'Multiple iterations, favicon, and brand guidelines.', status: 'todo', dueDate: '2026-03-22' },
+        { id: 'b3', title: 'Printing & Stationery', description: 'Business cards, loyalty cards, price lists, appointment cards, and gift vouchers.', status: 'todo', dueDate: '2026-03-25' },
+      ],
+    },
+    {
+      id: 'interior',
+      title: 'Interior & Architecture',
+      icon: 'Layout',
+      tasks: [
+        { id: 'i1', title: 'Interior Design (3D)', description: '3D renders, floor planning, lighting design, and furniture sourcing.', status: 'todo', dueDate: '2026-03-28' },
+        { id: 'i2', title: 'Implementation', description: 'Contractor management, electrical, plumbing, flooring, and painting.', status: 'todo', dueDate: '2026-04-15' },
+        { id: 'i3', title: 'Hammam Maghribi Build', description: 'Implementation of specialized plumbing for high-pressure steam and rapid drainage. Selection of premium moisture-resistant marble and non-slip tiles. Installation of an underfloor heating system and high-capacity moisture-proof ventilation to prevent mold and ensure guest comfort.', status: 'todo', dueDate: '2026-05-01' },
+        { id: 'i4', title: 'Furniture Sourcing', description: 'Salon chairs, wash stations, and reception desk.', status: 'todo', dueDate: '2026-04-10' },
+        { id: 'i5', title: 'حاوية (Waste Container)', description: 'Waste management and site clearance.', status: 'todo', dueDate: '2026-04-05' },
+        { id: 'i6', title: 'تكسير (Demolition)', description: 'Demolition and structural preparation.', status: 'todo', dueDate: '2026-04-01' },
+        { id: 'i7', title: 'Seiling (Ceiling)', description: 'False ceiling installation and design.', status: 'todo', dueDate: '2026-04-20' },
+        { id: 'i8', title: 'Wood & Design', description: 'Custom woodwork and decorative elements.', status: 'todo', dueDate: '2026-05-05' },
+        { id: 'i9', title: 'Electricity / Plumber - Work', description: 'Main MEP installation work.', status: 'todo', dueDate: '2026-04-15' },
+        { id: 'i10', title: 'Electricity / Plumber - Requirements', description: 'Procurement of electrical and plumbing fixtures.', status: 'todo', dueDate: '2026-03-30' },
+        { id: 'i11', title: 'Firefighter (Safety)', description: 'Fire safety system installation and certification.', status: 'todo', dueDate: '2026-05-15' },
+        { id: 'i12', title: 'AirCondition', description: 'HVAC system installation.', status: 'todo', dueDate: '2026-05-15' },
+        { id: 'i13', title: 'Pedicure / Manicure Stage', description: 'Construction of the specialized nail service area.', status: 'todo', dueDate: '2026-05-20' },
+        { id: 'i14', title: 'Floor', description: 'Flooring installation (marble/tile/wood).', status: 'todo', dueDate: '2026-05-25' },
+        { id: 'i15', title: 'Door', description: 'Custom door installation.', status: 'todo', dueDate: '2026-05-30' },
+        { id: 'i16', title: 'Sinks & Plumbing Fixtures', description: 'Installation of salon and wash station sinks.', status: 'todo', dueDate: '2026-05-20' },
+        { id: 'i17', title: 'New Chairs / Sofa', description: 'Procurement and placement of seating.', status: 'todo', dueDate: '2026-06-01' },
+        { id: 'i18', title: 'تنجيد (Upholstery)', description: 'Custom upholstery for furniture.', status: 'todo', dueDate: '2026-06-05' },
+        { id: 'i19', title: 'Ring Light & Equipment', description: 'Lighting equipment for service stations.', status: 'todo', dueDate: '2026-06-10' },
+        { id: 'i20', title: 'Temu & Amazon Orders', description: 'Tracking orders from Temu and Amazon.', status: 'todo', dueDate: '2026-05-15' },
+      ],
+    },
+    {
+      id: 'reception_setup',
+      title: 'Reception Setup',
+      icon: 'Layout',
+      tasks: [
+        { id: 'rs1', title: 'Front Desk Presentation', description: 'Clean counter (Sandy), Fresh flowers (Khadija), Scent diffuser (Sandy), Branded elements & iPad (Boss), Sanitizer station (Sandy).', status: 'todo', dueDate: '2026-06-15' },
+        { id: 'rs2', title: 'Welcome Area Touches', description: 'Elegant welcome board (Lilliana), Signature drink station (Khadija/Boss), Gift bag display (Lilliana).', status: 'todo', dueDate: '2026-06-16' },
+        { id: 'rs3', title: 'Guest Preparation', description: 'Welcome kits, guest schedule, filming support, refreshments, vouchers, and feedback forms.', status: 'todo', dueDate: '2026-06-17' },
+      ],
+    },
+    {
+      id: 'station_setup',
+      title: 'Service Station Setup',
+      icon: 'Scissors',
+      tasks: [
+        { id: 'ss1', title: 'Styling Chair Setup', description: 'Polished mirrors with LED/Ring lights, clean and cushioned neutral-toned seats. Responsible: Boss.', status: 'todo', dueDate: '2026-06-14' },
+        { id: 'ss2', title: 'Counter & Side Station', description: 'Branded towel stacks, refreshment trays (Water/Chocolate). Responsible: Boss.', status: 'todo', dueDate: '2026-06-14' },
+        { id: 'ss3', title: 'Service Atmosphere', description: 'Test electricals, setup Brazilian background music (Lilliana), subtle branding on tissues/bottles (Boss).', status: 'todo', dueDate: '2026-06-18' },
+      ],
+    },
+    {
+      id: 'services',
+      title: 'Service & Product',
+      icon: 'Scissors',
+      tasks: [
+        { id: 's1', title: 'Review Services', description: 'Finalizing hair, nail, and skin treatments.', status: 'todo', dueDate: '2026-03-25' },
+        { id: 's2', title: 'Review Packages', description: 'Creating "Bridal Packages," "Hammam Rituals," and "Monthly Maintenance" bundles.', status: 'todo', dueDate: '2026-03-25' },
+        { id: 's3', title: 'Product Sourcing', description: 'Selecting professional brands for back-bar and retail.', status: 'todo', dueDate: '2026-04-10' },
+        { id: 's4', title: 'Pricing Strategy', description: 'Compare prices with three competitors in a 5-mile radius.', status: 'todo', dueDate: '2026-04-10' },
+      ],
+    },
+    {
+      id: 'marketing',
+      title: 'Marketing & Social',
+      icon: 'Megaphone',
+      tasks: [
+        { id: 'm1', title: 'Content Preparation', description: 'Professional photoshoot of the space and staff.', status: 'todo', dueDate: '2026-05-15' },
+        { id: 'm2', title: 'Video Production', description: '"Coming Soon" teasers, "Behind the Scenes" of the Hammam build, and "Service Tutorials."', status: 'todo', dueDate: '2026-06-01' },
+        { id: 'm3', title: 'Social Media Setup', description: 'Bio optimization, booking link integration, and ad campaign setup.', status: 'todo', dueDate: '2026-03-25' },
+        { id: 'm4', title: 'Influencer Outreach', description: 'List 5 local influencers to invite for a "Pre-Opening" trial.', status: 'todo', dueDate: '2026-05-15' },
+        { id: 'm5', title: 'Screen Ads', description: 'In-salon or external digital screen advertising.', status: 'todo', dueDate: '2026-06-05' },
+        { id: 'm6', title: 'Digital Marketing', description: 'SEO, SEM, and broader digital strategy.', status: 'todo', dueDate: '2026-04-15' },
+        { id: 'm7', title: 'Microinfluencers', description: 'Specific outreach and management of micro-influencer campaigns.', status: 'todo', dueDate: '2026-05-15' },
+        { id: 'm8', title: 'Videography', description: 'Ongoing video content creation for social media.', status: 'todo', dueDate: '2026-06-01' },
+        { id: 'm9', title: 'Advertising Campaign', description: 'Broad advertising strategy and execution.', status: 'todo', dueDate: '2026-06-01' },
+        { id: 'm10', title: 'Create Hammam experience video', description: 'Showcase the authentic ritual and the relaxing post-scrub tea service.', status: 'todo', dueDate: '2026-06-01' },
+      ],
+    },
+    {
+      id: 'ops',
+      title: 'Operations & Launch',
+      icon: 'Rocket',
+      tasks: [
+        { id: 'o1', title: 'Staff Hiring & Training', description: 'Training for the specific Hammam Maghribi rituals.', status: 'todo', dueDate: '2026-05-10' },
+        { id: 'o2', title: 'Licenses & Permits', description: 'Health & Safety, Insurance, and Business Licenses.', status: 'todo', dueDate: '2026-03-25' },
+        { id: 'ld1', title: 'Morning Preparations (08:00 - 14:00)', description: 'Final venue inspection, staff briefing, uniform checks, and reception setup.', status: 'todo', dueDate: '2026-06-19' },
+        { id: 'ld2', title: 'Opening Ceremony (17:00 - 18:00)', description: 'Ribbon cutting with dignitary/influencer, photo/video capture, and owner welcome speech.', status: 'todo', dueDate: '2026-06-19' },
+        { id: 'ld3', title: 'Service Demos & Engagement (18:00 - 19:00)', description: 'Guided tours, live styling demos, makeup tutorials, and product workshops.', status: 'todo', dueDate: '2026-06-19' },
+        { id: 'ld4', title: 'Interactive Beauty Stations', description: 'Quick braiding, nail art corner, and skin analysis booth.', status: 'todo', dueDate: '2026-06-19' },
+        { id: 'ld5', title: 'Social Media & Photo Ops', description: 'Branded backdrop, hashtag promotion, and Instagram Live streaming.', status: 'todo', dueDate: '2026-06-19' },
+        { id: 'ld6', title: 'Exclusive Offers & Collabs', description: 'Discount vouchers, membership sign-ups, and local business pop-ups/catering.', status: 'todo', dueDate: '2026-06-19' },
+      ],
+    },
+  ]
+};
+

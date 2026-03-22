@@ -1,0 +1,33 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Helper functions
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+    
+    function isOwner(userId) {
+      return isAuthenticated() && request.auth.uid == userId;
+    }
+
+    // Validation for AppState
+    function isValidAppState(data) {
+      return data.keys().hasAll(['modules', 'budgetCategories', 'openingDate', 'hammamStatus', 'brandSettings']) &&
+             data.modules is list &&
+             data.budgetCategories is list &&
+             data.openingDate is string &&
+             data.hammamStatus in ['Ready', 'Plumbing', 'Tiling', 'Foundation'] &&
+             data.brandSettings is map;
+    }
+
+    match /users/{userId}/data/appState {
+      allow read: if isOwner(userId);
+      allow write: if isOwner(userId) && isValidAppState(request.resource.data);
+    }
+    
+    // Default deny
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

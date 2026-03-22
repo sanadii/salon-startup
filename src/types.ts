@@ -1,5 +1,3 @@
-import { LucideIcon } from 'lucide-react';
-
 export type TaskStatus = 'todo' | 'in-progress' | 'done';
 
 export interface Task {
@@ -45,7 +43,11 @@ export interface BrandSettings {
 }
 
 export interface AppState {
+  /** Monotonic schema version for migrations. */
+  schemaVersion: number;
   modules: Module[];
+  /** Reserved for future roll-up budget UI; stored in JSON for compatibility. */
+  budgetCategories: BudgetCategory[];
   openingDate: string;
   hammamStatus: 'Ready' | 'Plumbing' | 'Tiling' | 'Foundation';
   brandSettings: BrandSettings;

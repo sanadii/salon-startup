@@ -1,12 +1,7 @@
 import React from 'react';
-import { Clock, Layout, Calendar, Banknote, CheckCircle2 } from 'lucide-react';
+import { Layout, Calendar, Banknote, CheckCircle2 } from 'lucide-react';
 import { Task } from '../types';
-import { clsx, type ClassValue } from 'clsx';
-import { twMerge } from 'tailwind-merge';
-
-function cn(...inputs: ClassValue[]) {
-  return twMerge(clsx(inputs));
-}
+import { cn } from '../lib/cn';
 
 interface TaskCardProps {
   task: Task & { moduleTitle?: string; moduleId?: string };
@@ -42,26 +37,35 @@ export const TaskCard: React.FC<TaskCardProps> = ({
       isTimeline && "relative"
     )}>
       {/* Status Indicator / Toggle */}
-      <div 
+      <button
+        type="button"
         onClick={(e) => {
           e.stopPropagation();
           onToggleStatus?.();
         }}
+        aria-label={`Task status: ${task.status}. Click to change.`}
+        aria-pressed={task.status === 'done'}
         className={cn(
-          "flex items-center justify-center cursor-pointer transition-all shrink-0",
-          isCompact ? "w-2 h-2 rounded-full mt-2" : "mt-1 w-6 h-6 rounded-full border-2",
-          task.status === 'done' 
-            ? (isCompact ? "bg-emerald-500" : "bg-emerald-500 border-emerald-500 text-white shadow-lg shadow-emerald-500/20")
+          'flex items-center justify-center cursor-pointer transition-all shrink-0',
+          isCompact ? 'w-2 h-2 rounded-full mt-2' : 'mt-1 w-6 h-6 rounded-full border-2',
+          task.status === 'done'
+            ? isCompact
+              ? 'bg-emerald-500'
+              : 'bg-emerald-500 border-emerald-500 text-white shadow-lg shadow-emerald-500/20'
             : task.status === 'in-progress'
-              ? (isCompact ? "bg-brand-light" : "border-brand-light bg-brand-light/10 text-brand-light")
-              : (isCompact ? "bg-brand/10" : "border-brand/20 group-hover:border-brand/50 bg-white")
+              ? isCompact
+                ? 'bg-brand-light'
+                : 'border-brand-light bg-brand-light/10 text-brand-light'
+              : isCompact
+                ? 'bg-brand/10'
+                : 'border-brand/20 group-hover:border-brand/50 bg-white'
         )}
       >
         {!isCompact && task.status === 'done' && <CheckCircle2 size={14} />}
         {!isCompact && task.status === 'in-progress' && (
           <div className="w-2 h-2 rounded-full bg-brand animate-pulse" />
         )}
-      </div>
+      </button>
 
       {/* Content Area */}
       <div className="flex-1 min-w-0" onClick={onToggleStatus}>

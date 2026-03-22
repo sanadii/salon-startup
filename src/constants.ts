@@ -1,6 +1,8 @@
 import { AppState } from './types';
 
 export const INITIAL_DATA: AppState = {
+  schemaVersion: 1,
+  budgetCategories: [],
   openingDate: '2026-06-19',
   hammamStatus: 'Foundation',
   brandSettings: {

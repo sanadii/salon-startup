@@ -1,14 +1,29 @@
 import React from 'react';
 import { AppState, BrandSettings } from '../types';
-import { Palette, Calendar, Type, Image as ImageIcon, Save } from 'lucide-react';
+import {
+  Palette,
+  Calendar,
+  Type,
+  Image as ImageIcon,
+  Save,
+  RefreshCw,
+  Download,
+} from 'lucide-react';
 import { motion } from 'motion/react';
 
 interface SettingsProps {
   state: AppState;
   onUpdate: (newState: Partial<AppState>) => void;
+  onResetTimeline?: () => void;
+  onExportJson?: () => void;
 }
 
-export const Settings: React.FC<SettingsProps> = ({ state, onUpdate }) => {
+export const Settings: React.FC<SettingsProps> = ({
+  state,
+  onUpdate,
+  onResetTimeline,
+  onExportJson,
+}) => {
   const handleBrandUpdate = (updates: Partial<BrandSettings>) => {
     onUpdate({
       brandSettings: {
@@ -191,6 +206,46 @@ export const Settings: React.FC<SettingsProps> = ({ state, onUpdate }) => {
             </div>
           </div>
         </motion.section>
+
+        {(onResetTimeline || onExportJson) && (
+          <motion.section
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.25 }}
+            className="bg-white p-6 rounded-2xl shadow-sm border border-brand/5 md:col-span-2 space-y-4"
+          >
+            <div className="flex items-center gap-2 text-brand font-medium">
+              <RefreshCw className="w-5 h-5" />
+              <h2>Planner data</h2>
+            </div>
+            <p className="text-sm text-stone-500">
+              Reset task due dates to the built-in template, or download a JSON backup of your
+              planner.
+            </p>
+            <div className="flex flex-wrap gap-3">
+              {onResetTimeline && (
+                <button
+                  type="button"
+                  onClick={onResetTimeline}
+                  className="inline-flex items-center gap-2 px-4 py-2 rounded-xl border border-brand/20 text-brand text-sm font-medium hover:bg-brand/5 transition-colors"
+                >
+                  <RefreshCw className="w-4 h-4" />
+                  Reset task dates to template
+                </button>
+              )}
+              {onExportJson && (
+                <button
+                  type="button"
+                  onClick={onExportJson}
+                  className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-brand text-white text-sm font-medium hover:opacity-90 transition-opacity"
+                >
+                  <Download className="w-4 h-4" />
+                  Export JSON backup
+                </button>
+              )}
+            </div>
+          </motion.section>
+        )}
       </div>
 
       <div className="flex justify-end">
